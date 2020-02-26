@@ -81,7 +81,10 @@ Namespace Business
         ' write the log details
         writer = New StreamWriter(filePath)
 
-        writer.WriteLine(String.Join(GetDelimiter(delimiterType), columnNames))
+        writer.WriteLine("Expected fields: " & String.Join(GetDelimiter(delimiterType), columnNames))
+        writer.WriteLine(String.Empty)
+        writer.WriteLine("Correctly formatted records: ")
+        writer.WriteLine(String.Empty)
 
         For Each record As String In validRecords
           writer.WriteLine(record)
@@ -106,7 +109,10 @@ Namespace Business
         ' write the log details
         writer = New StreamWriter(filePath)
 
-        writer.WriteLine(String.Join(GetDelimiter(delimiterType), columnNames))
+        writer.WriteLine("Expected fields: " & String.Join(GetDelimiter(delimiterType), columnNames))
+        writer.WriteLine(String.Empty)
+        writer.WriteLine("Incorrectly formatted records: ")
+        writer.WriteLine(String.Empty)
 
         For Each record As String In invalidRecords
           writer.WriteLine(record)
